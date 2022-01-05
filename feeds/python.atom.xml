@@ -5,7 +5,7 @@
 &lt;p&gt;GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process and publishes a website.&lt;/p&gt;
 &lt;h1&gt;Create your repository&lt;/h1&gt;
 &lt;p&gt;Head over to GitHub and create a new public repository named username.github.io, where the username is your username on GitHub.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="GitHub Pages Create A New Repository" src="images/github-pages-create-a-new-repository.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GitHub Pages Create A New Repository" src="/images/github-pages-create-a-new-repository.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Clone the repository&lt;/h1&gt;
 &lt;p&gt;Go to the folder where you want to store your project, and clone your repository.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/username/username.github.io
@@ -48,7 +48,7 @@ source env/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Pelican creates the docs in your directory.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Pelican Directory" src="images/pelican-directory.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pelican Directory" src="/images/pelican-directory.png"&gt;&lt;/p&gt;
 &lt;p&gt;Your blog posts, photos, images, etc., will be in the content directory.&lt;/p&gt;
 &lt;h1&gt;Create the first post&lt;/h1&gt;
 &lt;p&gt;Go to the content directory&lt;/p&gt;
@@ -95,7 +95,7 @@ git push origin content
 &lt;h1&gt;Check GitHub Pages setting.&lt;/h1&gt;
 &lt;p&gt;Go to your repository settings, then pages.
 Your GitHub Pages site is currently being built from the master branch
-&lt;img alt="GitHub Pages Settings" src="images/github-pages-settings.png"&gt;&lt;/p&gt;
+&lt;img alt="GitHub Pages Settings" src="/images/github-pages-settings.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Result&lt;/h1&gt;
 &lt;p&gt;That's magic, and your website is running, go to http://username.github.io&lt;/p&gt;
 &lt;p&gt;For more details, please follow the links below:&lt;/p&gt;

@@ -98,8 +98,10 @@ Your GitHub Pages site is currently being built from the master branch
 &lt;img alt="GitHub Pages Settings" src="images/github-pages-settings.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Result&lt;/h1&gt;
 &lt;p&gt;That's magic, and your website is running, go to http://username.github.io&lt;/p&gt;
-&lt;p&gt;For more details, please follow the links below:
-- &lt;a href="https://pages.github.com/" title="GitHub Pages"&gt;GitHub Pages&lt;/a&gt;
-- &lt;a href="https://docs.getpelican.com/en/latest/quickstart.html" title="Pelican"&gt;Pelican&lt;/a&gt;
-- &lt;a href="https://docs.python.org/3/library/venv.html" title="Creation of virtual environments"&gt;Creation of virtual environments&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For more details, please follow the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pages.github.com/" title="GitHub Pages"&gt;GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.getpelican.com/en/latest/quickstart.html" title="Pelican"&gt;Pelican&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/venv.html" title="Creation of virtual environments"&gt;Creation of virtual environments&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;All the best!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="pelican"></category><category term="github"></category></entry></feed>

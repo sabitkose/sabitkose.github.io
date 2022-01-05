@@ -1,9 +1,9 @@
-title: Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages
+title: Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages
 date: 2021-01-04 22:20
 modified: 2021-01-04 22:20
 author: Sabit
 category: Python
-tags: python, pelican
+tags: python, pelican, github
 summary: Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages
 
 

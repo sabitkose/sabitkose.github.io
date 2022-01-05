@@ -6,7 +6,6 @@ category: Python
 tags: python, pelican, github
 summary: Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages
 
-
 # Pelican: What is it?
 Pelican is a static site generator written in Python. You can write your content directly with your editor of choice in reStructuredText or Markdown formats.
 
@@ -16,7 +15,7 @@ GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScri
 # Create your repository
 Head over to GitHub and create a new public repository named username.github.io, where the username is your username on GitHub.
 
-![GitHub Pages Create A New Repository](images/github-pages-create-a-new-repository.png)
+![GitHub Pages Create A New Repository]({static}/images/github-pages-create-a-new-repository.png)
 
 # Clone the repository
 Go to the folder where you want to store your project, and clone your repository.
@@ -74,7 +73,7 @@ pelican-quickstart
 
 Pelican creates the docs in your directory.
 
-![Pelican Directory](images/pelican-directory.png)
+![Pelican Directory]({static}/images/pelican-directory.png)
 
 Your blog posts, photos, images, etc., will be in the content directory.
 
@@ -139,9 +138,15 @@ git push origin master
 
 Go to your repository settings, then pages.
 Your GitHub Pages site is currently being built from the master branch
-![GitHub Pages Settings](images/github-pages-settings.png)
+![GitHub Pages Settings]({static}/images/github-pages-settings.png)
 
 # Result
 That's magic, and your website is running, go to http://username.github.io
+
+For more details, please follow the links below:
+
+- [GitHub Pages](https://pages.github.com/ "GitHub Pages")
+- [Pelican](https://docs.getpelican.com/en/latest/quickstart.html "Pelican")
+- [Creation of virtual environments](https://docs.python.org/3/library/venv.html "Creation of virtual environments")
 
 All the best!

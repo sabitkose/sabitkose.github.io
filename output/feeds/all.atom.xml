@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sabit's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-04T22:20:00+03:00</updated><entry><title>Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages</title><link href="/step-by-step-guide-to-setup-a-blog-using-pythonpelican-and-github-pages.html" rel="alternate"></link><published>2021-01-04T22:20:00+03:00</published><updated>2021-01-04T22:20:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-04:/step-by-step-guide-to-setup-a-blog-using-pythonpelican-and-github-pages.html</id><summary type="html">&lt;p&gt;Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pelican: What is it?&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sabit's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-04T22:20:00+03:00</updated><entry><title>Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages</title><link href="/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html" rel="alternate"></link><published>2021-01-04T22:20:00+03:00</published><updated>2021-01-04T22:20:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-04:/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html</id><summary type="html">&lt;p&gt;Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pelican: What is it?&lt;/h1&gt;
 &lt;p&gt;Pelican is a static site generator written in Python. You can write your content directly with your editor of choice in reStructuredText or Markdown formats.&lt;/p&gt;
 &lt;h1&gt;GitHub Pages: What is it?&lt;/h1&gt;
 &lt;p&gt;GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process and publishes a website.&lt;/p&gt;
 &lt;h1&gt;Create your repository&lt;/h1&gt;
 &lt;p&gt;Head over to GitHub and create a new public repository named username.github.io, where the username is your username on GitHub.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="GitHub Pages Create A New Repository" src="images/github-pages-create-a-new-repository.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GitHub Pages Create A New Repository" src="/images/github-pages-create-a-new-repository.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Clone the repository&lt;/h1&gt;
 &lt;p&gt;Go to the folder where you want to store your project, and clone your repository.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone https://github.com/username/username.github.io
@@ -48,7 +48,7 @@ source env/bin/activate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Pelican creates the docs in your directory.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Pelican Directory" src="images/pelican-directory.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pelican Directory" src="/images/pelican-directory.png"&gt;&lt;/p&gt;
 &lt;p&gt;Your blog posts, photos, images, etc., will be in the content directory.&lt;/p&gt;
 &lt;h1&gt;Create the first post&lt;/h1&gt;
 &lt;p&gt;Go to the content directory&lt;/p&gt;
@@ -95,7 +95,13 @@ git push origin content
 &lt;h1&gt;Check GitHub Pages setting.&lt;/h1&gt;
 &lt;p&gt;Go to your repository settings, then pages.
 Your GitHub Pages site is currently being built from the master branch
-&lt;img alt="GitHub Pages Settings" src="images/github-pages-settings.png"&gt;&lt;/p&gt;
+&lt;img alt="GitHub Pages Settings" src="/images/github-pages-settings.png"&gt;&lt;/p&gt;
 &lt;h1&gt;Result&lt;/h1&gt;
 &lt;p&gt;That's magic, and your website is running, go to http://username.github.io&lt;/p&gt;
-&lt;p&gt;All the best!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="pelican"></category></entry></feed>
+&lt;p&gt;For more details, please follow the links below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pages.github.com/" title="GitHub Pages"&gt;GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.getpelican.com/en/latest/quickstart.html" title="Pelican"&gt;Pelican&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/venv.html" title="Creation of virtual environments"&gt;Creation of virtual environments&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All the best!&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="pelican"></category><category term="github"></category></entry></feed>

@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sabit's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-04T22:20:00+03:00</updated><entry><title>Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages</title><link href="/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html" rel="alternate"></link><published>2021-01-04T22:20:00+03:00</published><updated>2021-01-04T22:20:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-04:/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html</id><summary type="html">&lt;p&gt;Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pelican: What is it?&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sabit's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2021-01-05T22:20:00+03:00</updated><entry><title>Clean Code</title><link href="/clean-code.html" rel="alternate"></link><published>2021-01-05T22:20:00+03:00</published><updated>2021-01-05T22:20:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-05:/clean-code.html</id><summary type="html">&lt;p&gt;In a nutshell, clean code helps a code read easily and change quickly by any developer.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'll share clean code concepts in this post, trying to keep them simple. &lt;/p&gt;
+&lt;h1&gt;What Is Clean Code?&lt;/h1&gt;
+&lt;p&gt;There are different approaches to clean coding. Every programming language directs our manner of coding. 
+&lt;strong&gt;&lt;em&gt;In a nutshell, clean code helps a code read easily and change quickly by any developer.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Martin Fowler explains clean code;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Why is Clean Code Important?&lt;/h1&gt;
+&lt;h2&gt;Maintainable Codebase&lt;/h2&gt;
+&lt;p&gt;To sustain a software or business to profitability, it has to be ready to change. According to ISO/IEC 25010 (System and software quality models), Maintainability is one of 8 main characteristics of Product quality.&lt;/p&gt;
+&lt;h2&gt;Low-Cost Troubleshooting And Debugging&lt;/h2&gt;
+&lt;p&gt;Clean code decreases the cost of troubleshooting and debugging.&lt;/p&gt;
+&lt;h2&gt;A Sustainable Software Development Team&lt;/h2&gt;
+&lt;p&gt;Clean code helps to introduce your codebase to new developers quickly.&lt;/p&gt;
+&lt;h1&gt;The Concepts of Clean Code&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;KISS:&lt;/strong&gt; Keep It Simple Stupid. We've heard everywhere; simple is the best, simple is better than complex, etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DRY:&lt;/strong&gt; Don't Repeat Yourself. DRY aims for maintainable code. In simple, a piece of code mustn't duplicate anywhere in your code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Boy-Scout Rule:&lt;/strong&gt; When a developer notices a code isn't clean code enough, they should fix it ASAP.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;YAGNI:&lt;/strong&gt; You Aren't Gonna Need It. If the code or feature isn't necessary, you should never add it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SOLID Principles:&lt;/strong&gt; Learn and apply. SOLID stands for:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt; - Single-responsibility Principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt; - Open-closed Principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt; - Liskov Substitution Principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; - Interface Segregation Principle&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; - Dependency Inversion Principle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Design Patterns:&lt;/strong&gt; Design patterns are specific solutions to common problems in software design. If you can solve a problem with a known design pattern, any developer would understand your code easily.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TDD: Test Driven Development,&lt;/strong&gt; test cases must be defined before software development, and the code must be repeatedly tested with the cases. &lt;strong&gt;&lt;em&gt;Testing is essential even if TDD isn't used&lt;/em&gt;&lt;/strong&gt;, especially growing codebase.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Project Structure:&lt;/strong&gt; It's helpful to keep a standard project structure. Class files, HTML files or any asset should be stored according to software language or framework.  Any developer would understand your project structure probably.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Naming Conventions:&lt;/strong&gt; The naming convention is so crucial that Phil Karlton is said to have said,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"There are only two hard things in Computer Science: cache invalidation and naming things."&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
+According to software languages, naming conventions should be chosen and declared to all developers. 
+Classes, functions, variables etc. should be named descriptive and unambiguous.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Indentations And Whitespaces:&lt;/strong&gt; Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.&lt;/p&gt;</content><category term="Software Development"></category></entry><entry><title>Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages</title><link href="/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html" rel="alternate"></link><published>2021-01-04T22:20:00+03:00</published><updated>2021-01-04T22:20:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-04:/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html</id><summary type="html">&lt;p&gt;Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Pelican: What is it?&lt;/h1&gt;
 &lt;p&gt;Pelican is a static site generator written in Python. You can write your content directly with your editor of choice in reStructuredText or Markdown formats.&lt;/p&gt;
 &lt;h1&gt;GitHub Pages: What is it?&lt;/h1&gt;
 &lt;p&gt;GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process and publishes a website.&lt;/p&gt;

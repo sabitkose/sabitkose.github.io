@@ -7,6 +7,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Keep It Simple" src="/images/keep-it-simple.jpg"&gt;&lt;/p&gt;
 &lt;h1&gt;Why is Clean Code Important?&lt;/h1&gt;
 &lt;h2&gt;Maintainable Codebase&lt;/h2&gt;
 &lt;p&gt;To sustain a software or business to profitability, it has to be ready to change. According to ISO/IEC 25010 (System and software quality models), Maintainability is one of 8 main characteristics of Product quality.&lt;/p&gt;
@@ -39,4 +40,20 @@
 &lt;p&gt;There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
 According to software languages, naming conventions should be chosen and declared to all developers. 
 Classes, functions, variables etc. should be named descriptive and unambiguous.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Indentations And Whitespaces:&lt;/strong&gt; Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.&lt;/p&gt;</content><category term="Software Development"></category></entry></feed>
+&lt;p&gt;&lt;img alt="Keep It Simple" src="/images/short-descriptive-variable-name.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Indentations And Whitespaces:&lt;/strong&gt; Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Function Arguments:&lt;/strong&gt; The argument list should be kept short. Structs should be preferred over a long primitive type list as arguments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Don't Hard-Code:&lt;/strong&gt; Don't write stuff by hand, It decreases the maintainability of your code.
+For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// aValue has a hard-coded value of &amp;quot;ABC&amp;quot; 
+string aValue = &amp;quot;ABC&amp;quot;; 
+
+// aValue has a non-hard-coded provided as input 
+Console.WriteLine(&amp;quot;Give me a value :&amp;quot;); 
+string aValue = Console.ReadLine();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Write Comments:&lt;/strong&gt; Code comments help to understand code easily. Avoid uncertain comments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Logging:&lt;/strong&gt; Logging is critical in troubleshooting and debugging progress. Log levels should be chosen correctly, and messages should be understandable and descriptive.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tools For Clean Code:&lt;/strong&gt;
+Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension&lt;/p&gt;</content><category term="Software Development"></category></entry></feed>

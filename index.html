@@ -14,12 +14,81 @@
                 <h1><a href="/">Sabit's Blog</a></h1>
                 <nav><ul>
                     <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/software-development.html">Software Development</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html">Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages</a></h1>
+                    <h1 class="entry-title"><a href="/clean-code.html">Clean Code</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-01-05T22:20:00+03:00">
+                Published: Tue 05 January 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-01-05T22:20:00+03:00">
+                Updated: Tue 05 January 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/sabit.html">Sabit</a>
+        </address>
+<p>In <a href="/category/software-development.html">Software Development</a>.</p>
+
+</footer><!-- /.post-info --><p>I'll share clean code concepts in this post, trying to keep them simple. </p>
+<h1>What Is Clean Code?</h1>
+<p>There are different approaches to clean coding. Every programming language directs our manner of coding. 
+<strong><em>In a nutshell, clean code helps a code read easily and change quickly by any developer.</em></strong></p>
+<p>Martin Fowler explains clean code;</p>
+<blockquote>
+<p>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
+</blockquote>
+<h1>Why is Clean Code Important?</h1>
+<h2>Maintainable Codebase</h2>
+<p>To sustain a software or business to profitability, it has to be ready to change. According to ISO/IEC 25010 (System and software quality models), Maintainability is one of 8 main characteristics of Product quality.</p>
+<h2>Low-Cost Troubleshooting And Debugging</h2>
+<p>Clean code decreases the cost of troubleshooting and debugging.</p>
+<h2>A Sustainable Software Development Team</h2>
+<p>Clean code helps to introduce your codebase to new developers quickly.</p>
+<h1>The Concepts of Clean Code</h1>
+<p><strong>KISS:</strong> Keep It Simple, Stupid. We've heard everywhere; simple is the best, simple is better than complex, etc.</p>
+<p><strong>DRY:</strong> Don't Repeat Yourself. DRY aims for maintainable code. In simple, a piece of code mustn't duplicate anywhere in your code.</p>
+<p><strong>Boy-Scout Rule:</strong> When a developer notices a code isn't clean code enough, they should fix it ASAP.</p>
+<p><strong>YAGNI:</strong> You Aren't Gonna Need It. If the code or feature isn't necessary, you should never add it.</p>
+<p><strong>SOLID Principles:</strong> Learn and apply. SOLID stands for:</p>
+<blockquote>
+<ul>
+<li><strong>S</strong> - Single-responsibility Principle</li>
+<li><strong>O</strong> - Open-closed Principle</li>
+<li><strong>L</strong> - Liskov Substitution Principle</li>
+<li><strong>I</strong> - Interface Segregation Principle</li>
+<li><strong>D</strong> - Dependency Inversion Principle</li>
+</ul>
+</blockquote>
+<p><strong>Design Patterns:</strong> Design patterns are specific solutions to common problems in software design. If you can solve a problem with a known design pattern, any developer would understand your code easily.</p>
+<p><strong>TDD: Test Driven Development,</strong> test cases must be defined before software development, and the code must be repeatedly tested with the cases. <strong><em>Testing is essential even if TDD isn't used</em></strong>, especially growing codebase.</p>
+<p><strong>Project Structure:</strong> It's helpful to keep a standard project structure. Class files, HTML files or any asset should be stored according to software language or framework.  Any developer would understand your project structure probably.</p>
+<p><strong>Naming Conventions:</strong> The naming convention is so crucial that Phil Karlton is said to have said,</p>
+<blockquote>
+<p>"There are only two hard things in Computer Science: cache invalidation and naming things."</p>
+</blockquote>
+<p>There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
+According to software languages, naming conventions should be chosen and declared to all developers. 
+Classes, functions, variables etc. should be named descriptive and unambiguous.</p>
+<p><strong>Indentations And Whitespaces:</strong> Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html" rel="bookmark"
+                           title="Permalink to Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages">Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2021-01-04T22:20:00+03:00">
                 Published: Mon 04 January 2021
@@ -34,113 +103,12 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>.</p>
 <p>tags: <a href="/tag/python.html">python</a> <a href="/tag/pelican.html">pelican</a> <a href="/tag/github.html">github</a> </p>
-</footer><!-- /.post-info --><h1>Pelican: What is it?</h1>
-<p>Pelican is a static site generator written in Python. You can write your content directly with your editor of choice in reStructuredText or Markdown formats.</p>
-<h1>GitHub Pages: What is it?</h1>
-<p>GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process and publishes a website.</p>
-<h1>Create your repository</h1>
-<p>Head over to GitHub and create a new public repository named username.github.io, where the username is your username on GitHub.</p>
-<p><img alt="GitHub Pages Create A New Repository" src="/images/github-pages-create-a-new-repository.png"></p>
-<h1>Clone the repository</h1>
-<p>Go to the folder where you want to store your project, and clone your repository.</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/username/username.github.io
-cd username.github.io.git
-</code></pre></div>
-
-<h1>Optional: Create a Virtual Environment using “venv.”</h1>
-<p>The venv module supports creating lightweight “virtual environments” with site directories, optionally isolated from system site directories.</p>
-<div class="highlight"><pre><span></span><code>python3 -m venv env
-source env/bin/activate
-</code></pre></div>
-
-<h1>Install Pelican</h1>
-<p>Pelican, ghp-import and markdown must be installed on your machine by pip.</p>
-<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="nn">Markdown</span>
-</code></pre></div>
-
-<h1>Create a Pelican Project</h1>
-<p>Create a skeleton project via the pelican-quickstart command, which begins by asking some questions about your site.</p>
-<div class="highlight"><pre><span></span><code><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span><span class="w"></span>
-
-
-<span class="o">&gt;</span><span class="w"> </span><span class="k">Where</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">.</span><span class="o">]</span><span class="w">  </span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">Your</span><span class="w"> </span><span class="n">Site</span><span class="w"> </span><span class="n">Name</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Who</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">Your</span><span class="w"> </span><span class="n">Name</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">en</span><span class="o">]</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">   </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="n">pagination</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">How</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">zone</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Europe/Paris</span><span class="o">]</span><span class="w"> </span><span class="n">Turkey</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Fabfile</span><span class="o">/</span><span class="n">Makefile</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">automate</span><span class="w"> </span><span class="n">generation</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">publishing</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">auto</span><span class="o">-</span><span class="n">reload</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">simpleHTTP</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">assist</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">theme</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">development</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">FTP</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">SSH</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Dropbox</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">S3</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Rackspace</span><span class="w"> </span><span class="n">Cloud</span><span class="w"> </span><span class="n">Files</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="k">Is</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">personal</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="p">(</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">)</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
-</code></pre></div>
-
-<p>Pelican creates the docs in your directory.</p>
-<p><img alt="Pelican Directory" src="/images/pelican-directory.png"></p>
-<p>Your blog posts, photos, images, etc., will be in the content directory.</p>
-<h1>Create the first post</h1>
-<p>Go to the content directory</p>
-<div class="highlight"><pre><span></span><code>cd content
-</code></pre></div>
-
-<p>Create a markdown file name "hello blog".</p>
-<div class="highlight"><pre><span></span><code>touch hello-blog.md
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="n">Title</span><span class="o">:</span> <span class="n">My</span> <span class="n">First</span> <span class="n">Review</span>
-<span class="n">Date</span><span class="o">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
-<span class="n">Category</span><span class="o">:</span> <span class="n">Review</span>
-
-<span class="n">Following</span> <span class="k">is</span> <span class="n">a</span> <span class="n">review</span> <span class="n">of</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">mechanical</span> <span class="n">keyboard</span><span class="o">.</span>
-</code></pre></div>
-
-<h1>Publish to GitHub</h1>
-<p>There are two branches of the repository.
-One of them is content. The branch keeps the Pelican configurations and raw files. 
-The other branch is master, which keeps web content.</p>
-<p>Push the local changes to the remote repository hosted on GitHub.</p>
-<div class="highlight"><pre><span></span><code>git checkout -b content
-Switched to a new branch &#39;content&#39;
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>git add .
-git commit -m &#39;initial pelican commit to content&#39;
-git push origin content
-</code></pre></div>
-
-<p>Run the command to generate your site:</p>
-<div class="highlight"><pre><span></span><code>pelican content -o output -s publishconf.py
-</code></pre></div>
-
-<p>Use ghp-import to add the contents of the output directory to the master branch:</p>
-<div class="highlight"><pre><span></span><code><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Generate Pelican site&quot;</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">jekyll</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span> <span class="n">output</span>
-</code></pre></div>
-
-<p>Push the local master branch to the remote repository:</p>
-<div class="highlight"><pre><span></span><code>git push origin master
-</code></pre></div>
-
-<h1>Check GitHub Pages setting.</h1>
-<p>Go to your repository settings, then pages.
-Your GitHub Pages site is currently being built from the master branch
-<img alt="GitHub Pages Settings" src="/images/github-pages-settings.png"></p>
-<h1>Result</h1>
-<p>That's magic, and your website is running, go to http://username.github.io</p>
-<p>For more details, please follow the links below:</p>
-<ul>
-<li><a href="https://pages.github.com/" title="GitHub Pages">GitHub Pages</a></li>
-<li><a href="https://docs.getpelican.com/en/latest/quickstart.html" title="Pelican">Pelican</a></li>
-<li><a href="https://docs.python.org/3/library/venv.html" title="Creation of virtual environments">Creation of virtual environments</a></li>
-</ul>
-<p>All the best!</p>                </article>
-            </aside><!-- /#featured -->
+</footer><!-- /.post-info -->                <p>Step By Step Guide To Setup A Blog Using Python/Pelican And Github Pages</p>
+                <a class="readmore" href="/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

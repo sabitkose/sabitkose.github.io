@@ -49,6 +49,7 @@
 <blockquote>
 <p>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
 </blockquote>
+<p><img alt="Keep It Simple" src="/images/keep-it-simple.jpg"></p>
 <h1>Why is Clean Code Important?</h1>
 <h2>Maintainable Codebase</h2>
 <p>To sustain a software or business to profitability, it has to be ready to change. According to ISO/IEC 25010 (System and software quality models), Maintainability is one of 8 main characteristics of Product quality.</p>
@@ -57,7 +58,7 @@
 <h2>A Sustainable Software Development Team</h2>
 <p>Clean code helps to introduce your codebase to new developers quickly.</p>
 <h1>The Concepts of Clean Code</h1>
-<p><strong>KISS:</strong> Keep It Simple Stupid. We've heard everywhere; simple is the best, simple is better than complex, etc.</p>
+<p><strong>KISS:</strong> Keep It Simple, Stupid. We've heard everywhere; simple is the best, simple is better than complex, etc.</p>
 <p><strong>DRY:</strong> Don't Repeat Yourself. DRY aims for maintainable code. In simple, a piece of code mustn't duplicate anywhere in your code.</p>
 <p><strong>Boy-Scout Rule:</strong> When a developer notices a code isn't clean code enough, they should fix it ASAP.</p>
 <p><strong>YAGNI:</strong> You Aren't Gonna Need It. If the code or feature isn't necessary, you should never add it.</p>
@@ -81,7 +82,23 @@
 <p>There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
 According to software languages, naming conventions should be chosen and declared to all developers. 
 Classes, functions, variables etc. should be named descriptive and unambiguous.</p>
+<p><img alt="Keep It Simple" src="/images/short-descriptive-variable-name.jpg"></p>
 <p><strong>Indentations And Whitespaces:</strong> Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.</p>
+<p><strong>Function Arguments:</strong> The argument list should be kept short. Structs should be preferred over a long primitive type list as arguments.</p>
+<p><strong>Don't Hard-Code:</strong> Don't write stuff by hand, It decreases the maintainability of your code.
+For example:</p>
+<div class="highlight"><pre><span></span><code>// aValue has a hard-coded value of &quot;ABC&quot; 
+string aValue = &quot;ABC&quot;; 
+
+// aValue has a non-hard-coded provided as input 
+Console.WriteLine(&quot;Give me a value :&quot;); 
+string aValue = Console.ReadLine();
+</code></pre></div>
+
+<p><strong>Write Comments:</strong> Code comments help to understand code easily. Avoid uncertain comments.</p>
+<p><strong>Logging:</strong> Logging is critical in troubleshooting and debugging progress. Log levels should be chosen correctly, and messages should be understandable and descriptive.</p>
+<p><strong>Tools For Clean Code:</strong>
+Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension</p>
     </div><!-- /.entry-content -->
 
   </article>

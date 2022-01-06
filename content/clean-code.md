@@ -14,6 +14,8 @@ There are different approaches to clean coding. Every programming language direc
 Martin Fowler explains clean code;
 > "Any fool can write code that a computer can understand. Good programmers write code that humans can understand."
 
+![Keep It Simple]({static}/images/keep-it-simple.jpg)
+
 # Why is Clean Code Important?
 ## Maintainable Codebase
 To sustain a software or business to profitability, it has to be ready to change. According to ISO/IEC 25010 (System and software quality models), Maintainability is one of 8 main characteristics of Product quality.
@@ -54,6 +56,29 @@ There are a few known naming conventions. These are Camel Case, Pascal Case, Sna
 According to software languages, naming conventions should be chosen and declared to all developers. 
 Classes, functions, variables etc. should be named descriptive and unambiguous.
 
+![Keep It Simple]({static}/images/short-descriptive-variable-name.jpg)
 
 **Indentations And Whitespaces:** Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.
 
+**Function Arguments:** The argument list should be kept short. Structs should be preferred over a long primitive type list as arguments.
+
+**Don't Hard-Code:** Don't write stuff by hand, It decreases the maintainability of your code.
+For example:
+
+```
+// aValue has a hard-coded value of "ABC" 
+string aValue = "ABC"; 
+
+// aValue has a non-hard-coded provided as input 
+Console.WriteLine("Give me a value :"); 
+string aValue = Console.ReadLine();
+
+```
+
+**Write Comments:** Code comments help to understand code easily. Avoid uncertain comments.
+
+**Logging:** Logging is critical in troubleshooting and debugging progress. Log levels should be chosen correctly, and messages should be understandable and descriptive.
+
+**Tools For Clean Code:**
+Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension
+ 

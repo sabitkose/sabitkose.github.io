@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Sabit's Blog - Software Development</title><link href="/" rel="alternate"></link><link href="/feeds/software-development.atom.xml" rel="self"></link><id>/</id><updated>2021-01-05T22:20:00+03:00</updated><entry><title>Clean Code</title><link href="/clean-code.html" rel="alternate"></link><published>2021-01-05T22:20:00+03:00</published><updated>2021-01-05T22:20:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-05:/clean-code.html</id><summary type="html">&lt;p&gt;In a nutshell, clean code helps a code read easily and change quickly by any developer.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'll share clean code concepts in this post, trying to keep them simple. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Sabit's Blog - Software Development</title><link href="/" rel="alternate"></link><link href="/feeds/software-development.atom.xml" rel="self"></link><id>/</id><updated>2021-01-06T05:00:00+03:00</updated><entry><title>Clean Code</title><link href="/clean-code.html" rel="alternate"></link><published>2021-01-05T22:20:00+03:00</published><updated>2021-01-06T05:00:00+03:00</updated><author><name>Sabit</name></author><id>tag:None,2021-01-05:/clean-code.html</id><summary type="html">&lt;p&gt;In a nutshell, clean code helps a code read easily and change quickly by any developer.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'll share clean code concepts in this post, keeping them simple. &lt;/p&gt;
 &lt;h1&gt;What Is Clean Code?&lt;/h1&gt;
 &lt;p&gt;There are different approaches to clean coding. Every programming language directs our manner of coding. 
 &lt;strong&gt;&lt;em&gt;In a nutshell, clean code helps a code read easily and change quickly by any developer.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Martin Fowler explains clean code;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)" target="_blank"&gt;Martin Fowler&lt;/a&gt; explains clean code;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -32,14 +32,16 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Design Patterns:&lt;/strong&gt; Design patterns are specific solutions to common problems in software design. If you can solve a problem with a known design pattern, any developer would understand your code easily.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;TDD: Test Driven Development,&lt;/strong&gt; test cases must be defined before software development, and the code must be repeatedly tested with the cases. &lt;strong&gt;&lt;em&gt;Testing is essential even if TDD isn't used&lt;/em&gt;&lt;/strong&gt;, especially growing codebase.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Project Structure:&lt;/strong&gt; It's helpful to keep a standard project structure. Class files, HTML files or any asset should be stored according to software language or framework.  Any developer would understand your project structure probably.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Project Structure:&lt;/strong&gt; It's helpful to keep a standard project structure. Class files, HTML files or any asset should be stored according to software language or framework.  Any developer would understand your project structure probably.
+Search for the words &lt;a href="https://www.google.com/search?q=django+project+structure+best+practices&amp;amp;rlz=1C1GCEU_trTR971TR971&amp;amp;oq=Django+Project+Structure+Best+Practices&amp;amp;aqs=chrome.0.35i39j69i60l3.400j0j1&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8" target="_blank"&gt;"Django Project Structure Best Practices"&lt;/a&gt; or &lt;a href="https://www.google.com/search?q=Organizing+.NET+Core+Projects&amp;amp;rlz=1C1GCEU_trTR971TR971&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8" target="_blank"&gt;"Organizing .NET Core Projects"&lt;/a&gt; online as an example.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Naming Conventions:&lt;/strong&gt; The naming convention is so crucial that Phil Karlton is said to have said,&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;"There are only two hard things in Computer Science: cache invalidation and naming things."&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
 According to software languages, naming conventions should be chosen and declared to all developers. 
-Classes, functions, variables etc. should be named descriptive and unambiguous.&lt;/p&gt;
+E.g. &lt;a href="https://realpython.com/python-pep8/#naming-styles" target="_blank"&gt;this post&lt;/a&gt;  lists the best naming conventions when writing python code.
+Classes, functions, variables etc., should be named descriptive and unambiguous.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Keep It Simple" src="/images/short-descriptive-variable-name.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Indentations And Whitespaces:&lt;/strong&gt; Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Function Arguments:&lt;/strong&gt; The argument list should be kept short. Structs should be preferred over a long primitive type list as arguments.&lt;/p&gt;
@@ -56,4 +58,5 @@ string aValue = Console.ReadLine();
 &lt;p&gt;&lt;strong&gt;Write Comments:&lt;/strong&gt; Code comments help to understand code easily. Avoid uncertain comments.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Logging:&lt;/strong&gt; Logging is critical in troubleshooting and debugging progress. Log levels should be chosen correctly, and messages should be understandable and descriptive.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tools For Clean Code:&lt;/strong&gt;
-Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension&lt;/p&gt;</content><category term="Software Development"></category></entry></feed>
+Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension.&lt;/p&gt;
+&lt;p&gt;All the best!&lt;/p&gt;</content><category term="Software Development"></category></entry></feed>

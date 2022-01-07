@@ -1,17 +1,17 @@
 title: Clean Code
 date: 2021-01-05 22:20
-modified: 2021-01-05 22:20
+modified: 2021-01-06 05:00
 author: Sabit
 category: Software Development
 summary: In a nutshell, clean code helps a code read easily and change quickly by any developer.
 
-I'll share clean code concepts in this post, trying to keep them simple. 
+I'll share clean code concepts in this post, keeping them simple. 
 
 # What Is Clean Code?
 There are different approaches to clean coding. Every programming language directs our manner of coding. 
 ***In a nutshell, clean code helps a code read easily and change quickly by any developer.***
 
-Martin Fowler explains clean code;
+[Martin Fowler](https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)){:target="_blank"} explains clean code;
 > "Any fool can write code that a computer can understand. Good programmers write code that humans can understand."
 
 ![Keep It Simple]({static}/images/keep-it-simple.jpg)
@@ -48,13 +48,16 @@ Clean code helps to introduce your codebase to new developers quickly.
 **TDD: Test Driven Development,** test cases must be defined before software development, and the code must be repeatedly tested with the cases. ***Testing is essential even if TDD isn't used***, especially growing codebase.
 
 **Project Structure:** It's helpful to keep a standard project structure. Class files, HTML files or any asset should be stored according to software language or framework.  Any developer would understand your project structure probably.
+Search for the words ["Django Project Structure Best Practices"](https://www.google.com/search?q=django+project+structure+best+practices&rlz=1C1GCEU_trTR971TR971&oq=Django+Project+Structure+Best+Practices&aqs=chrome.0.35i39j69i60l3.400j0j1&sourceid=chrome&ie=UTF-8){:target="_blank"} or ["Organizing .NET Core Projects"](https://www.google.com/search?q=Organizing+.NET+Core+Projects&rlz=1C1GCEU_trTR971TR971&sourceid=chrome&ie=UTF-8){:target="_blank"} online as an example.
 
 **Naming Conventions:** The naming convention is so crucial that Phil Karlton is said to have said,
 > "There are only two hard things in Computer Science: cache invalidation and naming things."
 
 There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
 According to software languages, naming conventions should be chosen and declared to all developers. 
-Classes, functions, variables etc. should be named descriptive and unambiguous.
+E.g. [this post](https://realpython.com/python-pep8/#naming-styles){:target="_blank"}  lists the best naming conventions when writing python code.
+Classes, functions, variables etc., should be named descriptive and unambiguous.
+
 
 ![Keep It Simple]({static}/images/short-descriptive-variable-name.jpg)
 
@@ -80,5 +83,6 @@ string aValue = Console.ReadLine();
 **Logging:** Logging is critical in troubleshooting and debugging progress. Log levels should be chosen correctly, and messages should be understandable and descriptive.
 
 **Tools For Clean Code:**
-Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension
+Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension.
  
+All the best!

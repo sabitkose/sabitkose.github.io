@@ -16,6 +16,8 @@ cd username.github.io.git
 &lt;p&gt;The venv module supports creating lightweight “virtual environments” with site directories, optionally isolated from system site directories.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m venv env
 source env/bin/activate
+or windows
+env\Scripts\activate.bat
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h1&gt;Install Pelican&lt;/h1&gt;

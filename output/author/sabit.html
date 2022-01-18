@@ -13,6 +13,7 @@
         <header id="banner" class="body">
                 <h1><a href="/">Sabit's Blog</a></h1>
                 <nav><ul>
+                    <li><a href="/category/net.html">.Net</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/software-development.html">Software Development</a></li>
                 </ul></nav>
@@ -20,7 +21,150 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/clean-code.html">Clean Code</a></h1>
+                    <h1 class="entry-title"><a href="/distributed-caching-with-redis-and-aspnet-core-minimal-apis.html">Distributed Caching With Redis And ASP.NET Core Minimal APIs</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-01-17T00:20:00+03:00">
+                Published: Sun 17 January 2021
+        </abbr>
+		<br />
+        <abbr class="modified" title="2021-01-17T00:20:00+03:00">
+                Updated: Sun 17 January 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/sabit.html">Sabit</a>
+        </address>
+<p>In <a href="/category/net.html">.Net</a>.</p>
+<p>tags: <a href="/tag/net.html">.net</a> <a href="/tag/redis.html">redis</a> <a href="/tag/docker.html">docker</a> <a href="/tag/nuget.html">nuget</a> <a href="/tag/bogus.html">bogus</a> </p>
+</footer><!-- /.post-info --><p>In software, Some processes like IO and database sometimes could be slow. Data, image and file assets can access from the cache instead of the source too fast. Response time could be improved with cached data if data is likely to be reuse.</p>
+<p>If multiple applications use the same source, local cache use causes some issues that have to figure out. That is, performance, scalability and consistency. Distributed cache use figures these issues out.</p>
+<p><img alt="Project Structure" src="/images/cached-application.png"></p>
+<h1>What is Redis?</h1>
+<blockquote>
+<p>"Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker."</p>
+</blockquote>
+<p>See also redis alternatives; MongoDB, Memcached, Hazelcast, Apache Cassandra, CouchBase etc.</p>
+<h1>Installation and Dependencies</h1>
+<h2>Run Redis via Docker as a demo environment.</h2>
+<p>Redis endpoint is localhost:6379.</p>
+<div class="highlight"><pre><span></span><code>docker run --name demo-redis -p 6379:6379 -d redis
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">docker</span> <span class="n">ps</span>
+<span class="n">CONTAINER</span> <span class="n">ID</span>   <span class="n">IMAGE</span>     <span class="n">COMMAND</span>                  <span class="n">CREATED</span>      <span class="n">STATUS</span>      <span class="n">PORTS</span>                                       <span class="n">NAMES</span>      
+<span class="mf">1f</span><span class="mi">776</span><span class="n">a7fadeb</span>   <span class="n">redis</span>     <span class="s">&quot;docker-entrypoint.s…&quot;</span>   <span class="mi">2</span> <span class="n">days</span> <span class="n">ago</span>   <span class="n">Up</span> <span class="mi">2</span> <span class="n">days</span>   <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">6379</span><span class="o">-&gt;</span><span class="mi">6379</span><span class="o">/</span><span class="n">tcp</span><span class="p">,</span> <span class="o">:::</span><span class="mi">6379</span><span class="o">-&gt;</span><span class="mi">6379</span><span class="o">/</span><span class="n">tcp</span>   <span class="n">demo</span><span class="o">-</span><span class="n">redis</span>
+</code></pre></div>
+
+<h2>Install packages via Nuget, which is .Net package manager</h2>
+<div class="highlight"><pre><span></span><code>dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis
+dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
+dotnet add package Bogus
+</code></pre></div>
+
+<h2>Create a empty .net core web app</h2>
+<div class="highlight"><pre><span></span><code>mkdir project-name
+dotnet new web
+</code></pre></div>
+
+<p>Created project structure.</p>
+<p><img alt="Project Structure" src="/images/empty-dotnet-core-web-project-structure.png"></p>
+<h1>Coding</h1>
+<p>There is simulation of a slow the database or IO process to get users in the demo. To get data faster, I cache users' data after the first access.</p>
+<p>Open the Program.cs file.</p>
+<h2>Create a data structure named User</h2>
+<div class="highlight"><pre><span></span><code>public class User
+{
+    public int Id { get; set; }
+    public string FullName { get; set; }
+    public string Email { get; set; }
+}
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">using</span> <span class="n">System</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">Extensions</span><span class="o">.</span><span class="n">Caching</span><span class="o">.</span><span class="n">Distributed</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">Newtonsoft</span><span class="o">.</span><span class="n">Json</span><span class="p">;</span>
+<span class="n">using</span> <span class="n">Bogus</span><span class="p">;</span>
+
+<span class="k">var</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">WebApplication</span><span class="o">.</span><span class="n">CreateBuilder</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="mi">1</span><span class="p">)</span> <span class="n">Dependency</span> <span class="n">Injection</span><span class="p">;</span> <span class="n">Add</span> <span class="ow">and</span> <span class="n">configure</span> <span class="n">Redis</span> <span class="n">cache</span> <span class="n">service</span><span class="o">.</span>
+<span class="n">builder</span><span class="o">.</span><span class="n">Services</span><span class="o">.</span><span class="n">AddStackExchangeRedisCache</span><span class="p">(</span><span class="n">action</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="n">action</span><span class="o">.</span><span class="n">Configuration</span> <span class="o">=</span> <span class="s2">&quot;localhost:6379&quot;</span><span class="p">;</span> <span class="p">});</span>
+<span class="k">var</span> <span class="n">app</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">Build</span><span class="p">();</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">MapGet</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="n">Add</span> <span class="n">a</span> <span class="n">example</span> <span class="n">APIs</span> <span class="n">Method</span> <span class="k">for</span> <span class="n">demo</span><span class="o">.</span>
+<span class="n">app</span><span class="o">.</span><span class="n">MapGet</span><span class="p">(</span><span class="s2">&quot;/users/{id}&quot;</span><span class="p">,</span> <span class="n">async</span> <span class="p">(</span><span class="n">http</span><span class="p">)</span> <span class="o">=&gt;</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="mi">3</span><span class="p">)</span> <span class="n">Get</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">Redis</span> <span class="n">cache</span> <span class="n">service</span>
+    <span class="k">var</span> <span class="n">_distributedCache</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">RequestServices</span><span class="o">.</span><span class="n">GetRequiredService</span><span class="o">&lt;</span><span class="n">IDistributedCache</span><span class="o">&gt;</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="mi">4</span><span class="p">)</span> <span class="n">set</span> <span class="n">up</span> <span class="n">variables</span> <span class="k">for</span> <span class="n">demo</span> <span class="n">logic</span><span class="o">.</span>
+    <span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span><span class="p">;</span>
+    <span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="o">.</span><span class="n">RouteValues</span><span class="o">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">out</span> <span class="k">var</span> <span class="n">id</span><span class="p">);</span>
+    <span class="n">string</span> <span class="n">json</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">cacheKey</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="mi">5</span><span class="p">)</span> <span class="n">If</span> <span class="n">user</span> <span class="n">data</span> <span class="n">exists</span> <span class="ow">in</span> <span class="n">Redis</span> <span class="n">datastore</span><span class="p">,</span> <span class="n">get</span> <span class="n">users</span><span class="o">.</span>
+    <span class="k">var</span> <span class="n">usersFromCache</span> <span class="o">=</span> <span class="n">await</span> <span class="n">_distributedCache</span><span class="o">.</span><span class="n">GetAsync</span><span class="p">(</span><span class="n">cacheKey</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">usersFromCache</span> <span class="o">!=</span> <span class="nb nb-Type">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">json</span> <span class="o">=</span> <span class="n">Encoding</span><span class="o">.</span><span class="n">UTF8</span><span class="o">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">usersFromCache</span><span class="p">);</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="n">JsonConvert</span><span class="o">.</span><span class="n">DeserializeObject</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="o">//</span> <span class="mi">6</span><span class="p">)</span> <span class="n">If</span> <span class="n">user</span> <span class="n">data</span> <span class="n">doesn</span><span class="s1">&#39;t exist in Redis datastore, simulate a slow database or IO process to get users. </span>
+        <span class="o">//</span> <span class="mf">6.1</span><span class="p">)</span> <span class="n">Extra</span> <span class="n">information</span> <span class="k">for</span> <span class="n">demo</span><span class="o">.</span> <span class="n">Generate</span> <span class="n">some</span> <span class="n">dummy</span> <span class="n">users</span> <span class="n">via</span> <span class="n">the</span> <span class="n">Bogus</span> <span class="n">package</span> <span class="n">that</span> <span class="n">creates</span> <span class="n">mock</span> <span class="n">data</span><span class="o">.</span>
+        <span class="n">Randomizer</span><span class="o">.</span><span class="n">Seed</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Random</span><span class="p">();</span>
+        <span class="nb nb-Type">int</span> <span class="n">userIds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">var</span> <span class="n">testUsers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Faker</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">RuleFor</span><span class="p">(</span><span class="n">c</span> <span class="o">=&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">Id</span><span class="p">,</span> <span class="n">f</span> <span class="o">=&gt;</span> <span class="n">userIds</span><span class="o">++</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">RuleFor</span><span class="p">(</span><span class="n">c</span> <span class="o">=&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">FullName</span><span class="p">,</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">FullName</span><span class="p">())</span>
+            <span class="o">.</span><span class="n">RuleFor</span><span class="p">(</span><span class="n">c</span> <span class="o">=&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">Email</span><span class="p">,</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">Internet</span><span class="o">.</span><span class="n">Email</span><span class="p">());</span>
+        <span class="n">users</span> <span class="o">=</span> <span class="n">testUsers</span><span class="o">.</span><span class="n">Generate</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="mi">7</span><span class="p">)</span> <span class="n">Set</span> <span class="n">users</span> <span class="n">data</span> <span class="k">as</span> <span class="n">cached</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">Redis</span><span class="o">.</span>
+        <span class="n">json</span> <span class="o">=</span> <span class="n">JsonConvert</span><span class="o">.</span><span class="n">SerializeObject</span><span class="p">(</span><span class="n">users</span><span class="p">);</span>
+        <span class="n">usersFromCache</span> <span class="o">=</span> <span class="n">Encoding</span><span class="o">.</span><span class="n">UTF8</span><span class="o">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+        <span class="k">var</span> <span class="n">options</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DistributedCacheEntryOptions</span><span class="p">()</span>
+                        <span class="o">.</span><span class="n">SetSlidingExpiration</span><span class="p">(</span><span class="n">TimeSpan</span><span class="o">.</span><span class="n">FromDays</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> 
+                        <span class="o">.</span><span class="n">SetAbsoluteExpiration</span><span class="p">(</span><span class="n">DateTime</span><span class="o">.</span><span class="n">Now</span><span class="o">.</span><span class="n">AddMonths</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> 
+                <span class="n">await</span> <span class="n">_distributedCache</span><span class="o">.</span><span class="n">SetAsync</span><span class="p">(</span><span class="n">cacheKey</span><span class="p">,</span> <span class="n">usersFromCache</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">var</span> <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="o">.</span><span class="n">First</span><span class="p">(</span><span class="n">c</span> <span class="o">=&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">Id</span> <span class="o">==</span> <span class="nb nb-Type">int</span><span class="o">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">id</span><span class="o">.</span><span class="n">ToString</span><span class="p">()));</span>
+    <span class="n">await</span> <span class="n">http</span><span class="o">.</span><span class="n">Response</span><span class="o">.</span><span class="n">WriteAsJsonAsync</span><span class="p">(</span><span class="n">user</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">Run</span><span class="p">();</span>
+</code></pre></div>
+
+<h1>Results</h1>
+<p>Response time of the first request that is simulated slow process is <strong>0,078000s</strong>. The second request that Redis cache is <strong>0,031000s</strong>, As well as, Different apps can consume the same data via Redis. 
+Redis can scale, and all apps show the same cached data.  </p>
+<div class="highlight"><pre><span></span><code>curl -o /dev/null -s -w &quot;Total Time:  %{time_total}s\n&quot; https://localhost:7241/users/3       
+Total Time:  0,078000s
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>curl -o /dev/null -s -w &quot;Total Time:  %{time_total}s\n&quot; https://localhost:7241/users/3       
+Total Time:  0,031000s
+</code></pre></div>
+
+<p>All the best!</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/clean-code.html" rel="bookmark"
+                           title="Permalink to Clean Code">Clean Code</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2021-01-05T22:20:00+03:00">
                 Published: Tue 05 January 2021
@@ -35,72 +179,10 @@
         </address>
 <p>In <a href="/category/software-development.html">Software Development</a>.</p>
 
-</footer><!-- /.post-info --><p>I'll share clean code concepts in this post, keeping them simple. </p>
-<h1>What Is Clean Code?</h1>
-<p>There are different approaches to clean coding. Every programming language directs our manner of coding. 
-<strong><em>In a nutshell, clean code helps a code read easily and change quickly by any developer.</em></strong></p>
-<p><a href="https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)" target="_blank">Martin Fowler</a> explains clean code;</p>
-<blockquote>
-<p>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
-</blockquote>
-<p><img alt="Keep It Simple" src="/images/keep-it-simple.jpg"></p>
-<h1>Why is Clean Code Important?</h1>
-<h2>Maintainable Codebase</h2>
-<p>To sustain a software or business to profitability, it has to be ready to change. According to ISO/IEC 25010 (System and software quality models), Maintainability is one of 8 main characteristics of Product quality.</p>
-<h2>Low-Cost Troubleshooting And Debugging</h2>
-<p>Clean code decreases the cost of troubleshooting and debugging.</p>
-<h2>A Sustainable Software Development Team</h2>
-<p>Clean code helps to introduce your codebase to new developers quickly.</p>
-<h1>The Concepts of Clean Code</h1>
-<p><strong>KISS:</strong> Keep It Simple, Stupid. We've heard everywhere; simple is the best, simple is better than complex, etc.</p>
-<p><strong>DRY:</strong> Don't Repeat Yourself. DRY aims for maintainable code. In simple, a piece of code mustn't duplicate anywhere in your code.</p>
-<p><strong>Boy-Scout Rule:</strong> When a developer notices a code isn't clean code enough, they should fix it ASAP.</p>
-<p><strong>YAGNI:</strong> You Aren't Gonna Need It. If the code or feature isn't necessary, you should never add it.</p>
-<p><strong>SOLID Principles:</strong> Learn and apply. SOLID stands for:</p>
-<blockquote>
-<ul>
-<li><strong>S</strong> - Single-responsibility Principle</li>
-<li><strong>O</strong> - Open-closed Principle</li>
-<li><strong>L</strong> - Liskov Substitution Principle</li>
-<li><strong>I</strong> - Interface Segregation Principle</li>
-<li><strong>D</strong> - Dependency Inversion Principle</li>
-</ul>
-</blockquote>
-<p><strong>Design Patterns:</strong> Design patterns are specific solutions to common problems in software design. If you can solve a problem with a known design pattern, any developer would understand your code easily.</p>
-<p><strong>TDD: Test Driven Development,</strong> test cases must be defined before software development, and the code must be repeatedly tested with the cases. <strong><em>Testing is essential even if TDD isn't used</em></strong>, especially growing codebase.</p>
-<p><strong>Project Structure:</strong> It's helpful to keep a standard project structure. Class files, HTML files or any asset should be stored according to software language or framework.  Any developer would understand your project structure probably.
-Search for the words <a href="https://www.google.com/search?q=django+project+structure+best+practices&amp;rlz=1C1GCEU_trTR971TR971&amp;oq=Django+Project+Structure+Best+Practices&amp;aqs=chrome.0.35i39j69i60l3.400j0j1&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">"Django Project Structure Best Practices"</a> or <a href="https://www.google.com/search?q=Organizing+.NET+Core+Projects&amp;rlz=1C1GCEU_trTR971TR971&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank">"Organizing .NET Core Projects"</a> online as an example.</p>
-<p><strong>Naming Conventions:</strong> The naming convention is so crucial that Phil Karlton is said to have said,</p>
-<blockquote>
-<p>"There are only two hard things in Computer Science: cache invalidation and naming things."</p>
-</blockquote>
-<p>There are a few known naming conventions. These are Camel Case, Pascal Case, Snake Case, Kebab Case, Hungarian Notation.
-According to software languages, naming conventions should be chosen and declared to all developers. 
-E.g. <a href="https://realpython.com/python-pep8/#naming-styles" target="_blank">this post</a>  lists the best naming conventions when writing python code.
-Classes, functions, variables etc., should be named descriptive and unambiguous.</p>
-<p><img alt="Keep It Simple" src="/images/short-descriptive-variable-name.jpg"></p>
-<p><strong>Indentations And Whitespaces:</strong> Indentations and whitespaces are essential to read a code. It would be best if you kept in standard according to your rules.</p>
-<p><strong>Function Arguments:</strong> The argument list should be kept short. Structs should be preferred over a long primitive type list as arguments.</p>
-<p><strong>Don't Hard-Code:</strong> Don't write stuff by hand, It decreases the maintainability of your code.
-For example:</p>
-<div class="highlight"><pre><span></span><code>// aValue has a hard-coded value of &quot;ABC&quot; 
-string aValue = &quot;ABC&quot;; 
-
-// aValue has a non-hard-coded provided as input 
-Console.WriteLine(&quot;Give me a value :&quot;); 
-string aValue = Console.ReadLine();
-</code></pre></div>
-
-<p><strong>Write Comments:</strong> Code comments help to understand code easily. Avoid uncertain comments.</p>
-<p><strong>Logging:</strong> Logging is critical in troubleshooting and debugging progress. Log levels should be chosen correctly, and messages should be understandable and descriptive.</p>
-<p><strong>Tools For Clean Code:</strong>
-Some tools help to write clean code, analyse your code and find code smells, etc. out like SonarQube, Sharpen extension.</p>
-<p>All the best!</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>In a nutshell, clean code helps a code read easily and change quickly by any developer.</p>
+                <a class="readmore" href="/clean-code.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -114,8 +196,8 @@ Some tools help to write clean code, analyse your code and find code smells, etc
                 Published: Mon 04 January 2021
         </abbr>
 		<br />
-        <abbr class="modified" title="2021-01-04T22:20:00+03:00">
-                Updated: Mon 04 January 2021
+        <abbr class="modified" title="2021-01-17T22:20:00+03:00">
+                Updated: Sun 17 January 2021
         </abbr>
 
         <address class="vcard author">

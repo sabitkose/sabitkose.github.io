@@ -1,6 +1,6 @@
 title: Step By Step Guide To Setup A Blog Using Python Pelican And Github Pages
 date: 2021-01-04 22:20
-modified: 2021-01-04 22:20
+modified: 2021-01-17 22:20
 author: Sabit
 category: Python
 tags: python, pelican, github
@@ -32,7 +32,8 @@ The venv module supports creating lightweight “virtual environments” with si
 ```
 python3 -m venv env
 source env/bin/activate
-
+or windows
+env\Scripts\activate.bat
 ```
 
 # Install Pelican

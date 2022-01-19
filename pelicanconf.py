@@ -34,8 +34,8 @@ PLUGIN_PATHS = ['C:\\Users\\skose\\pelican-plugins']
 PLUGINS = ['sitemap']
 
 SITEMAP = {
-    "format": "txt",
-    "exclude": ["tag/", "category/", "author/", "tags.html", "categories.html", "authors.html", "archives.html" ],
+    "format": "xml",
+    "exclude": ["tag/", "category/",], #"author/", "tags.html", "categories.html", "authors.html", "archives.html" ],
     "priorities": {
         "articles": 0.5,
         "indexes": 0.5,

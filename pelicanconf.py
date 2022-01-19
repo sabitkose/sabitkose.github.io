@@ -1,6 +1,6 @@
 AUTHOR = 'Sabit'
 SITENAME = "Sabit's Blog"
-SITEURL = ''
+SITEURL = "https://sabitkose.github.io"
 
 PATH = 'content'
 
@@ -34,7 +34,7 @@ PLUGIN_PATHS = ['C:\\Users\\skose\\pelican-plugins']
 PLUGINS = ['sitemap']
 
 SITEMAP = {
-    "format": "xml",
+    "format": "txt",
     "exclude": ["tag/", "category/", "author/", "tags.html", "categories.html", "authors.html", "archives.html" ],
     "priorities": {
         "articles": 0.5,

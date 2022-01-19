@@ -28,3 +28,22 @@ STATIC_PATHS = ['images']
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+
+PLUGIN_PATHS = ['C:\\Users\\skose\\pelican-plugins']
+PLUGINS = ['sitemap']
+
+SITEMAP = {
+    "format": "xml",
+    "exclude": ["tag/", "category/", "author/", ],
+    "priorities": {
+        "articles": 0.5,
+        "indexes": 0.5,
+        "pages": 0.5
+    },
+    "changefreqs": {
+        "articles": "monthly",
+        "indexes": "daily",
+        "pages": "monthly"
+    }
+}

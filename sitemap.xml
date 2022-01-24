@@ -4,63 +4,63 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/</loc>
-<lastmod>2022-01-24T10:34:59-00:00</lastmod>
+<loc>https://sabitkose.github.io/</loc>
+<lastmod>2022-01-24T10:54:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tags.html</loc>
-<lastmod>2022-01-24T10:34:59-00:00</lastmod>
+<loc>https://sabitkose.github.io/tags.html</loc>
+<lastmod>2022-01-24T10:54:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/categories.html</loc>
-<lastmod>2022-01-24T10:34:59-00:00</lastmod>
+<loc>https://sabitkose.github.io/categories.html</loc>
+<lastmod>2022-01-24T10:54:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/authors.html</loc>
-<lastmod>2022-01-24T10:34:59-00:00</lastmod>
+<loc>https://sabitkose.github.io/authors.html</loc>
+<lastmod>2022-01-24T10:54:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/archives.html</loc>
-<lastmod>2022-01-24T10:34:59-00:00</lastmod>
+<loc>https://sabitkose.github.io/archives.html</loc>
+<lastmod>2022-01-24T10:54:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/distributed-caching-with-redis-and-aspnet-core-minimal-apis.html</loc>
+<loc>https://sabitkose.github.io/distributed-caching-with-redis-and-aspnet-core-minimal-apis.html</loc>
 <lastmod>2021-01-17T00:20:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/clean-code.html</loc>
+<loc>https://sabitkose.github.io/clean-code.html</loc>
 <lastmod>2021-01-06T05:00:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html</loc>
+<loc>https://sabitkose.github.io/step-by-step-guide-to-setup-a-blog-using-python-pelican-and-github-pages.html</loc>
 <lastmod>2021-01-17T22:20:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/author/sabit.html</loc>
+<loc>https://sabitkose.github.io/author/sabit.html</loc>
 <lastmod>2021-01-17T22:20:00+01:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
